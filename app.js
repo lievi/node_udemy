@@ -1,22 +1,6 @@
-// Pass by value
-
-function change(b) {
-    b = 2;
-}
-
-var a = 1;
-
-change(a);
-console.log(a);
-
-// Pass by refernce
-function changeObj(d) {
-    d.prop1 = function () { };
-    d.prop2 = {};
-}
-
-var c = {};
-c.prop1 = {};
-
-changeObj(c);
-console.log(c);
+var firstName = 'Jane';
+(function () {
+    var firstName = 'John';
+    console.log(firstName);
+}());
+console.log(firstName);
