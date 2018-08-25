@@ -1,3 +1,3 @@
 var greet = require("./greet");
-greet.english();
-greet.spanish();
+var greet2 = require("./greet2");
+greet2.greet();
