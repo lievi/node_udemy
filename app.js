@@ -1,13 +1,6 @@
-var name = "John Doe";
-var greet = `Hello ${name}`;
-
-var obj = {
-    name: "John Doe",
-    greet: function() {
-        console.log(`Hello ${this.name}`);
-    }
-};
-
-obj.greet();
-obj.greet.call({ name: "Jane Doe" });
-obj.greet.apply({ name: "Jane Doe" });
+var buf = new ArrayBuffer(8);
+var view = new Int32Array(buf);
+view[0] = 5;
+view[1] = 80;
+view[2] = 80;
+console.log(view);
