@@ -1,6 +1,13 @@
-var buf = new ArrayBuffer(8);
-var view = new Int32Array(buf);
-view[0] = 5;
-view[1] = 80;
-view[2] = 80;
-console.log(view);
+var fs = require("fs");
+
+var greet = fs.readFileSync(__dirname + "/greet.txt", "utf-8");
+
+console.log(greet);
+
+var greet2 = fs.readFile(__dirname + "/greet.txt", "utf-8", function(
+    err,
+    data
+) {
+    console.log(data);
+});
+console.log("Done!");
