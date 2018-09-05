@@ -1,11 +1,14 @@
 var fs = require("fs");
+var zlib = require("zlib");
 
-var readable = fs.createReadStream(__dirname + "/greet.txt", {
-    encoding: "utf-8",
-    highWaterMark: 32 * 1024
-});
+var readable = fs.createReadStream(__dirname + "/greet.txt");
 
 var writable = fs.createWriteStream(__dirname + "/greetcopy.txt");
-readable.on("data", function(chunk) {
-    writable.write(chunk);
-});
+
+var compressed = fs.createWriteStream(__dirname + "/greet.txt.gz");
+
+var gzip = zlib.createGzip();
+
+readable.pipe(writable);
+
+readable.pipe(gzip).pipe(compressed);
