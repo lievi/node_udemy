@@ -3,7 +3,7 @@ var fs = require("fs");
 http.createServer(function(req, res) {
     if (req.url === "/") {
         fs.createReadStream(__dirname + "/index.html").pipe(res);
-    } else if (req.url === "/api") {
+    } else if (req.url === "/json") {
         res.writeHead(200, { "Content-Type": "application/json" });
         var obj = {
             firstname: "John",
